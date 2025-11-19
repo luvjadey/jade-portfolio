@@ -17,10 +17,10 @@ const config: Config = {
           400: '#f87171',
           500: '#ef4444',
           600: '#dc2626',
-          700: '#b91c1c',
-          800: '#991b1b', // Main wine red color
-          900: '#7f1d1d',
-          950: '#450a0a',
+          700: '#c91a1a',
+          800: '#c91a1a', // Main wine red color - brighter, less dull
+          900: '#b91c1c',
+          950: '#991b1b',
         },
       },
     },

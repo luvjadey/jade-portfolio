@@ -3,25 +3,13 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
-// Simplified world map coordinates (major cities as nodes)
-const worldNodes = [
-  { x: 0.15, y: 0.25, name: 'San Francisco' }, // USA West
-  { x: 0.25, y: 0.30, name: 'Phoenix' }, // USA Southwest
-  { x: 0.30, y: 0.25, name: 'New York' }, // USA East
-  { x: 0.50, y: 0.20, name: 'London' }, // UK
-  { x: 0.55, y: 0.25, name: 'Paris' }, // France
-  { x: 0.65, y: 0.30, name: 'Moscow' }, // Russia
-  { x: 0.75, y: 0.25, name: 'Beijing' }, // China
-  { x: 0.80, y: 0.35, name: 'Tokyo' }, // Japan
-  { x: 0.85, y: 0.50, name: 'Sydney' }, // Australia
-  { x: 0.20, y: 0.60, name: 'Mexico City' }, // Mexico
-  { x: 0.30, y: 0.70, name: 'Bogota' }, // Colombia
-  { x: 0.40, y: 0.65, name: 'Sao Paulo' }, // Brazil
-  { x: 0.50, y: 0.50, name: 'Cairo' }, // Egypt
-  { x: 0.60, y: 0.45, name: 'Dubai' }, // UAE
-  { x: 0.70, y: 0.50, name: 'Mumbai' }, // India
-  { x: 0.50, y: 0.75, name: 'Cape Town' }, // South Africa
-]
+interface BinaryColumn {
+  x: number
+  y: number
+  speed: number
+  chars: string[]
+  charHeights: number[]
+}
 
 export default function CyberMapBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -41,104 +29,176 @@ export default function CyberMapBackground() {
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
 
-    // Convert relative positions to absolute
-    const nodes = worldNodes.map((node) => ({
-      x: node.x * canvas.width,
-      y: node.y * canvas.height,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      baseX: node.x * canvas.width,
-      baseY: node.y * canvas.height,
-    }))
+    // Create binary columns spread across the screen
+    const columns: BinaryColumn[] = []
+    const columnSpacing = 30 // Space between columns
+    const numColumns = Math.ceil(canvas.width / columnSpacing)
+
+    for (let i = 0; i < numColumns; i++) {
+      const x = i * columnSpacing + (Math.random() * 20 - 10)
+      const columnLength = 15 + Math.random() * 25 // Variable length columns
+      const chars: string[] = []
+      const charHeights: number[] = []
+      
+      for (let j = 0; j < columnLength; j++) {
+        chars.push(Math.random() > 0.5 ? '1' : '0')
+        charHeights.push(18 + Math.random() * 8) // Variable character heights
+      }
+
+      columns.push({
+        x,
+        y: -Math.random() * canvas.height, // Start at random positions above screen
+        speed: 0.5 + Math.random() * 1.5, // Variable falling speed
+        chars,
+        charHeights,
+      })
+    }
+
+    let time = 0
+
+    // Color function - slowly transitions through light blue hues
+    const getColorRGBA = (opacity: number) => {
+      // Cycle through light blue to cyan
+      const hue = 200 + Math.sin(time * 0.05) * 30 // 170-230 (blue to cyan)
+      const saturation = 60 + Math.sin(time * 0.08) * 30
+      const lightness = 50 + Math.sin(time * 0.06) * 20
+      
+      // Convert HSL to RGB
+      const h = hue / 360
+      const s = saturation / 100
+      const l = lightness / 100
+      const c = (1 - Math.abs(2 * l - 1)) * s
+      const x = c * (1 - Math.abs((h * 6) % 2 - 1))
+      const m = l - c / 2
+      
+      let r = 0, g = 0, b = 0
+      if (h < 1/6) { r = c; g = x; b = 0 }
+      else if (h < 2/6) { r = x; g = c; b = 0 }
+      else if (h < 3/6) { r = 0; g = c; b = x }
+      else if (h < 4/6) { r = 0; g = x; b = c }
+      else if (h < 5/6) { r = x; g = 0; b = c }
+      else { r = c; g = 0; b = x }
+      
+      r = Math.round((r + m) * 255)
+      g = Math.round((g + m) * 255)
+      b = Math.round((b + m) * 255)
+      
+      return `rgba(${r}, ${g}, ${b}, ${opacity})`
+    }
 
     const animate = () => {
-      // Clear with slight fade for trail effect - black background
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
+      time += 0.01
+      
+      // Clear with slight fade for trail effect
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-      // Update node positions with slight drift
-      nodes.forEach((node) => {
-        // Gentle drift around base position
-        node.x += node.vx
-        node.y += node.vy
+      // Set font properties
+      ctx.font = 'bold 16px "Courier New", monospace'
+      ctx.textAlign = 'center'
+      ctx.textBaseline = 'top'
 
-        // Keep nodes near their base position
-        const dx = node.baseX - node.x
-        const dy = node.baseY - node.y
-        const distance = Math.sqrt(dx * dx + dy * dy)
+      // Update and draw each column
+      columns.forEach((column, colIndex) => {
+        // Update position
+        column.y += column.speed
 
-        if (distance > 30) {
-          node.vx *= -0.8
-          node.vy *= -0.8
+        // Reset column if it goes off screen
+        if (column.y > canvas.height + column.chars.length * 20) {
+          column.y = -Math.random() * canvas.height
+          // Randomly change some characters
+          column.chars.forEach((_, i) => {
+            if (Math.random() > 0.7) {
+              column.chars[i] = Math.random() > 0.5 ? '1' : '0'
+            }
+          })
         }
 
-        // Boundary check
-        if (node.x < 0 || node.x > canvas.width) node.vx *= -1
-        if (node.y < 0 || node.y > canvas.height) node.vy *= -1
-
-        node.x = Math.max(0, Math.min(canvas.width, node.x))
-        node.y = Math.max(0, Math.min(canvas.height, node.y))
-      })
-
-      // Draw connections between nearby nodes
-      nodes.forEach((node, i) => {
-        nodes.slice(i + 1).forEach((otherNode) => {
-          const dx = node.x - otherNode.x
-          const dy = node.y - otherNode.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
-
-          if (distance < 200) {
-            const opacity = 0.5 * (1 - distance / 200)
-            ctx.strokeStyle = `rgba(59, 130, 246, ${opacity})` // Bright blue
-            ctx.lineWidth = 1.5
-            ctx.beginPath()
-            ctx.moveTo(node.x, node.y)
-            ctx.lineTo(otherNode.x, otherNode.y)
-            ctx.stroke()
+        // Draw each character in the column
+        let currentY = column.y
+        column.chars.forEach((char, charIndex) => {
+          // Calculate opacity - brighter at top, fading down
+          const fadeStart = 0.3 // Start fading after 30% of column
+          const charPosition = charIndex / column.chars.length
+          let opacity = 1
+          
+          if (charPosition < fadeStart) {
+            opacity = 0.15 + (charPosition / fadeStart) * 0.25 // 0.15 to 0.4
+          } else {
+            opacity = 0.4 - ((charPosition - fadeStart) / (1 - fadeStart)) * 0.3 // 0.4 to 0.1
           }
+
+          // Make some characters glow brighter randomly
+          const glow = Math.random() > 0.85 ? 1.5 : 1
+          const finalOpacity = Math.min(opacity * glow, 0.6) // Cap at 0.6 for visibility
+
+          // Draw glow effect
+          ctx.shadowBlur = 10
+          ctx.shadowColor = getColorRGBA(0.8)
+          ctx.fillStyle = getColorRGBA(finalOpacity)
+          
+          // Draw the binary character
+          ctx.fillText(char, column.x, currentY)
+          
+          currentY += column.charHeights[charIndex]
         })
+
+        ctx.shadowBlur = 0
       })
 
-      // Draw nodes
-      nodes.forEach((node) => {
-        // Outer glow - bright blue
-        const gradient = ctx.createRadialGradient(
-          node.x,
-          node.y,
-          0,
-          node.x,
-          node.y,
-          10
-        )
-        gradient.addColorStop(0, 'rgba(96, 165, 250, 0.9)') // Bright blue-400
-        gradient.addColorStop(0.5, 'rgba(59, 130, 246, 0.5)') // Bright blue-500
-        gradient.addColorStop(1, 'rgba(37, 99, 235, 0)') // Blue-600 fade
+      // Add some floating binary clusters for extra effect
+      if (Math.floor(time * 10) % 5 === 0) {
+        for (let i = 0; i < 3; i++) {
+          const x = Math.random() * canvas.width
+          const y = Math.random() * canvas.height
+          const binary = Math.random() > 0.5 ? '1' : '0'
+          
+          ctx.shadowBlur = 15
+          ctx.shadowColor = getColorRGBA(0.6)
+          ctx.fillStyle = getColorRGBA(0.2)
+          ctx.font = 'bold 20px "Courier New", monospace'
+          ctx.fillText(binary, x, y)
+        }
+      }
 
-        ctx.fillStyle = gradient
-        ctx.beginPath()
-        ctx.arc(node.x, node.y, 10, 0, Math.PI * 2)
-        ctx.fill()
-
-        // Core node - bright blue
-        ctx.fillStyle = 'rgba(59, 130, 246, 0.95)' // Bright blue-500
-        ctx.beginPath()
-        ctx.arc(node.x, node.y, 5, 0, Math.PI * 2)
-        ctx.fill()
-
-        // Bright center - very bright blue
-        ctx.fillStyle = 'rgba(96, 165, 250, 1)' // Bright blue-400
-        ctx.beginPath()
-        ctx.arc(node.x, node.y, 2.5, 0, Math.PI * 2)
-        ctx.fill()
-      })
+      ctx.shadowBlur = 0
 
       requestAnimationFrame(animate)
     }
 
+    // Recreate columns on resize
+    const handleResize = () => {
+      resizeCanvas()
+      columns.length = 0
+      const newNumColumns = Math.ceil(canvas.width / columnSpacing)
+      
+      for (let i = 0; i < newNumColumns; i++) {
+        const x = i * columnSpacing + (Math.random() * 20 - 10)
+        const columnLength = 15 + Math.random() * 25
+        const chars: string[] = []
+        const charHeights: number[] = []
+        
+        for (let j = 0; j < columnLength; j++) {
+          chars.push(Math.random() > 0.5 ? '1' : '0')
+          charHeights.push(18 + Math.random() * 8)
+        }
+
+        columns.push({
+          x,
+          y: -Math.random() * canvas.height,
+          speed: 0.5 + Math.random() * 1.5,
+          chars,
+          charHeights,
+        })
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
     animate()
 
     return () => {
       window.removeEventListener('resize', resizeCanvas)
+      window.removeEventListener('resize', handleResize)
     }
   }, [])
 
@@ -152,4 +212,3 @@ export default function CyberMapBackground() {
     />
   )
 }
-

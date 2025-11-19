@@ -9,6 +9,7 @@
   
   body {
     @apply bg-black text-gray-100;
+    font-family: 'Courier New', Courier, monospace;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }

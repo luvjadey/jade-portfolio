@@ -34,14 +34,7 @@ export default function Navigation() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 py-4">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <motion.a
-            href="#home"
-            whileHover={{ scale: 1.05 }}
-            className="text-xl font-bold text-wine-red-800 hidden md:block"
-          >
-            Jade Yang
-          </motion.a>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-4">
           <div className="flex gap-4 flex-wrap justify-center">
             {navItems.map((item) => (
               <motion.a

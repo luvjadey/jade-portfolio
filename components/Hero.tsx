@@ -34,10 +34,20 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-5xl md:text-6xl font-bold mb-4 text-wine-red-800"
+          className="text-5xl md:text-6xl font-bold mb-2 text-wine-red-800"
         >
           {personal.name}
         </motion.h1>
+
+        {/* Main Positions */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="text-lg md:text-xl text-gray-300 mb-6"
+        >
+          Cybersecurity @ ASU | Honors Intern @ DOJ | President of Club Tennis at ASU
+        </motion.p>
 
         {/* Elevator Pitch */}
         <motion.div
@@ -73,6 +83,16 @@ export default function Hero() {
             className="px-8 py-3 bg-wine-red-800 text-white rounded-lg hover:bg-wine-red-900 transition-all shadow-lg font-medium"
           >
             LinkedIn
+          </motion.a>
+          <motion.a
+            href={personal.resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 bg-wine-red-800 text-white rounded-lg hover:bg-wine-red-900 transition-all shadow-lg font-medium"
+          >
+            Resume
           </motion.a>
         </motion.div>
       </motion.div>
