@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-black text-gray-100;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-wine {
+    @apply text-wine-red-800;
+  }
+  
+  .bg-wine {
+    @apply bg-wine-red-800;
+  }
+  
+  .border-wine {
+    @apply border-wine-red-800;
+  }
+}
+
