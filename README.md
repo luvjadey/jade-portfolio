@@ -1,7 +1,6 @@
 # Jade's Portfolio
 
-My personal portfolio website built with Next.js. It showcases my experience, education, leadership roles, and skills in a clean, modern interface with an animated cyber map background.
-
+My personal portfolio website built with Next.js. It showcases my experience, education, leadership roles, and skills in a clean, modern interface.
 
 
 ## Tech Stack
