@@ -24,7 +24,6 @@ export interface PortfolioConfig {
   personal: {
     name: string;
     pronouns: string;
-    phone: string;
     email: string;
     linkedin: string;
     resume: string; // Path or URL to resume
@@ -52,10 +51,9 @@ export const portfolioConfig: PortfolioConfig = {
   personal: {
     name: "Jade Yang",
     pronouns: "She/Her",
-    phone: "(541) 941-5341",
     email: "Jadeyang1314@gmail.com",
     linkedin: "https://www.linkedin.com/in/jadeyang27",
-    resume: "/resume.pdf", // Update this path to your resume file
+    resume: "CyberGov Resume - Jade Yang.pdf", // Update this path to your resume file
     headshot: "/images/Headshot.jpg", // User will need to add their headshot
     elevatorPitch: "I'm Jade Yang. I'm a senior at Arizona State University studying Applied Computing with a focus in cybersecurity, and I'm passionate about national security work. I started early—enrolling in community college at 16—and since then I've grown through leadership roles as a tennis instructor, site director, and President of Club Tennis at ASU.\n\nAt 19, I earned an FBI Honors Internship, and now I'm a student consultant in the Hacking for Defense program, working with the Indiana National Guard and the Department of Defense. I'm driven, eager to learn, and committed to protecting critical assets while contributing as both a leader and a team member.",
   },

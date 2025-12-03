@@ -37,4 +37,3 @@ export default function Headshot({ src, alt, name }: HeadshotProps) {
     </div>
   )
 }
-
