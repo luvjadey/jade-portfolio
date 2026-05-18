@@ -3,116 +3,75 @@
 import { motion } from 'framer-motion'
 import { portfolioConfig } from '@/config/portfolio'
 import Headshot from './Headshot'
+import ConnectButton from './ConnectButton'
 
 export default function Hero() {
   const { personal } = portfolioConfig
 
   return (
-    <>
-      {/* HERO / LANDING SECTION */}
-      <section
-        id="home"
-        className="min-h-screen flex flex-col items-center justify-center px-4 py-20 relative scroll-mt-20"
+    <section
+      id="home"
+      className="min-h-screen flex flex-col items-center justify-center px-4 pt-28 pb-20 relative scroll-mt-20"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="max-w-3xl mx-auto text-center"
       >
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="mb-8"
+        >
+          <Headshot src={personal.headshot} alt={personal.name} name={personal.name} />
+        </motion.div>
+
+        <motion.h1
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto text-center"
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="text-5xl md:text-7xl mb-6 text-white tracking-tight"
+          style={{ fontWeight: 600 }}
         >
-          {/* Headshot */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8"
-          >
-            <Headshot
-              src={personal.headshot}
-              alt={personal.name}
-              name={personal.name}
-            />
-          </motion.div>
+          {personal.name}
+        </motion.h1>
 
-          {/* Name */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-5xl md:text-6xl font-bold mb-2 text-wine-red-800"
-          >
-            {personal.name}
-          </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="text-base md:text-lg text-white/80 leading-relaxed mb-10 max-w-2xl mx-auto"
+        >
+          {personal.shortIntro}
+        </motion.p>
 
-          {/* Main Positions / Title */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="text-lg md:text-xl text-gray-300 mb-6 whitespace-normal md:whitespace-nowrap"
-          >
-            Cybersecurity @ ASU | Honors Intern @ DOJ | President of Club Tennis at ASU
-          </motion.p>
-
-          {/* Contact Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap justify-center gap-4 mt-4"
-          >
-            <motion.a
-              href={`mailto:${personal.email}`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-wine-red-800 text-white rounded-lg hover:bg-wine-red-900 transition-all shadow-lg font-medium"
-            >
-              Email
-            </motion.a>
-            <motion.a
-              href={personal.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-wine-red-800 text-white rounded-lg hover:bg-wine-red-900 transition-all shadow-lg font-medium"
-            >
-              LinkedIn
-            </motion.a>
-            <motion.a
-              href={personal.resume}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-wine-red-800 text-white rounded-lg hover:bg-wine-red-900 transition-all shadow-lg font-medium"
-            >
-              Resume
-            </motion.a>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* ABOUT ME SECTION (MOVED LOWER DOWN THE PAGE) */}
-      <section
-        id="about"
-        className="px-4 py-16 scroll-mt-20"
-      >
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-wrap justify-center items-center gap-4"
         >
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-wine-red-800">
-            About Me
-          </h2>
-          <div className="text-lg md:text-xl text-gray-200 leading-relaxed whitespace-pre-line bg-black/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border-2 border-wine-red-800/20">
-            {personal.elevatorPitch}
-          </div>
+          <ConnectButton href={personal.linkedin} />
+          <a
+            href={personal.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass-btn"
+          >
+            GitHub
+          </a>
+          <a
+            href={`/${personal.resume}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="glass-btn"
+          >
+            Resume
+          </a>
         </motion.div>
-      </section>
-    </>
+      </motion.div>
+    </section>
   )
 }

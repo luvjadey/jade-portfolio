@@ -6,25 +6,84 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply bg-black text-gray-100;
-    font-family: 'Courier New', Courier, monospace;
+    @apply bg-navy-950 text-white;
+    font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
     font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.04] backdrop-blur-xl border border-white/10;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 8px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  .glass-strong {
+    @apply bg-white/[0.06] backdrop-blur-2xl border border-white/15;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 12px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .glass-btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl
+           bg-white/[0.06] backdrop-blur-xl border border-white/15
+           text-white font-semibold tracking-wide
+           transition-all duration-200
+           hover:bg-white/[0.12] hover:border-cyber-glow/60 hover:shadow-glow
+           active:scale-[0.98];
+  }
+
+  .chip {
+    @apply inline-block px-3 py-1 rounded-full text-sm font-medium
+           bg-white/[0.05] border border-white/10 text-cyber-glow/90;
   }
 }
 
 @layer utilities {
-  .text-wine {
-    @apply text-wine-red-800;
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(125, 211, 252, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(125, 211, 252, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
-  
-  .bg-wine {
-    @apply bg-wine-red-800;
+
+  .text-glow {
+    text-shadow: 0 0 18px rgba(125, 211, 252, 0.45);
   }
-  
-  .border-wine {
-    @apply border-wine-red-800;
+
+  .animate-drift-a {
+    animation: drift-a 18s ease-in-out infinite alternate;
+  }
+  .animate-drift-b {
+    animation: drift-b 22s ease-in-out infinite alternate;
+  }
+  .animate-drift-c {
+    animation: drift-c 26s ease-in-out infinite alternate;
   }
 }
 
+@keyframes drift-a {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-40px, 30px, 0) scale(1.08); }
+}
+@keyframes drift-b {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(50px, -25px, 0) scale(1.06); }
+}
+@keyframes drift-c {
+  0%   { transform: translate3d(-50%, -50%, 0) scale(1); }
+  100% { transform: translate3d(-45%, -55%, 0) scale(1.12); }
+}

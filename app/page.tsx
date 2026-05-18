@@ -1,10 +1,11 @@
 import CyberMapBackground from '@/components/CyberMapBackground'
 import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
-import Education from '@/components/Education'
+import AboutMe from '@/components/AboutMe'
 import Experience from '@/components/Experience'
-import Leadership from '@/components/Leadership'
+import Projects from '@/components/Projects'
 import Skills from '@/components/Skills'
+import Contact from '@/components/Contact'
 
 export default function Home() {
   return (
@@ -12,18 +13,17 @@ export default function Home() {
       <CyberMapBackground />
       <Navigation />
       <Hero />
-      <Education />
+      <AboutMe />
       <Experience />
-      <Leadership />
+      <Projects />
       <Skills />
-      
-      {/* Footer */}
-      <footer className="bg-black/80 backdrop-blur-sm border-t-2 border-wine-red-800/20 py-8 px-4">
-        <div className="max-w-6xl mx-auto text-center text-gray-300">
+      <Contact />
+
+      <footer className="border-t border-white/10 py-8 px-4 bg-navy-950/40 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto text-center text-white/60 text-sm">
           <p>&copy; {new Date().getFullYear()} Jade Yang. All rights reserved.</p>
         </div>
       </footer>
     </main>
   )
 }
-

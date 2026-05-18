@@ -4,93 +4,45 @@ import { motion } from 'framer-motion'
 import { portfolioConfig } from '@/config/portfolio'
 import Section from './Section'
 
+interface SkillGroupProps {
+  title: string
+  items: string[]
+  delay?: number
+}
+
+function SkillGroup({ title, items, delay = 0 }: SkillGroupProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay }}
+      className="glass rounded-2xl p-7"
+    >
+      <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+        <span className="h-2 w-2 rounded-full bg-cyber-glow shadow-glow" />
+        {title}
+      </h3>
+      <div className="flex flex-wrap gap-2">
+        {items.map((item, i) => (
+          <span key={i} className="chip">{item}</span>
+        ))}
+      </div>
+    </motion.div>
+  )
+}
+
 export default function Skills() {
   const { skills } = portfolioConfig
 
   return (
-    <Section id="skills" title="Skills">
-      <div className="grid md:grid-cols-4 gap-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-black/80 backdrop-blur-sm rounded-lg shadow-xl p-8 border-2 border-wine-red-800/20"
-        >
-          <h3 className="text-2xl font-bold text-wine-red-800 mb-4">Languages</h3>
-          <div className="flex flex-wrap gap-2">
-            {skills.languages.map((lang, idx) => (
-              <span
-                key={idx}
-                className="px-4 py-2 bg-wine-red-800/10 text-wine-red-800 rounded-full font-medium border border-wine-red-800/20"
-              >
-                {lang}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="bg-black/80 backdrop-blur-sm rounded-lg shadow-xl p-8 border-2 border-wine-red-800/20"
-        >
-          <h3 className="text-2xl font-bold text-wine-red-800 mb-4">Technical</h3>
-          <div className="flex flex-wrap gap-2">
-            {skills.technical.map((tech, idx) => (
-              <span
-                key={idx}
-                className="px-4 py-2 bg-wine-red-800/10 text-wine-red-800 rounded-full font-medium border border-wine-red-800/20"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-black/80 backdrop-blur-sm rounded-lg shadow-xl p-8 border-2 border-wine-red-800/20"
-        >
-          <h3 className="text-2xl font-bold text-wine-red-800 mb-4">Certifications</h3>
-          <div className="flex flex-wrap gap-2">
-            {skills.certifications.map((cert, idx) => (
-              <span
-                key={idx}
-                className="px-4 py-2 bg-wine-red-800/10 text-wine-red-800 rounded-full font-medium border border-wine-red-800/20"
-              >
-                {cert}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="bg-black/80 backdrop-blur-sm rounded-lg shadow-xl p-8 border-2 border-wine-red-800/20"
-        >
-          <h3 className="text-2xl font-bold text-wine-red-800 mb-4">Clearances</h3>
-          <div className="flex flex-wrap gap-2">
-            {skills.clearances.map((clearance, idx) => (
-              <span
-                key={idx}
-                className="px-4 py-2 bg-wine-red-800/10 text-wine-red-800 rounded-full font-medium border border-wine-red-800/20"
-              >
-                {clearance}
-              </span>
-            ))}
-          </div>
-        </motion.div>
+    <Section id="skills" title="Technical Skills">
+      <div className="grid md:grid-cols-2 gap-6">
+        <SkillGroup title="Security Operations & Analysis" items={skills.securityOps} />
+        <SkillGroup title="Tools & Platforms" items={skills.tools} delay={0.08} />
+        <SkillGroup title="Programming" items={skills.programming} delay={0.16} />
+        <SkillGroup title="Languages" items={skills.languages} delay={0.24} />
       </div>
     </Section>
   )
 }
-
