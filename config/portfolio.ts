@@ -85,6 +85,20 @@ export const portfolioConfig: PortfolioConfig = {
       ],
       skills: ["TS/SCI Clearance", "Counterintelligence", "OSINT", "Briefings"],
     },
+    {
+      title: "Student Consultant",
+      company: "Hacking for Defense® (H4D)",
+      location: "Tempe, AZ",
+      startDate: "August 2025",
+      endDate: "December 2025",
+      current: false,
+      logo: "/1620238916.jpg",
+      bullets: [
+        "Designed a Public–Private Partnership (PPP) business model to support Multi-Domain Operations (MDO) training for the Indiana National Guard without requiring additional federal funding",
+        "Presented an executive-level proposal to DoD and National Guard stakeholders that streamlined operational readiness, reduced logistical burden, and integrated private-sector innovation into defense capability development",
+      ],
+      skills: ["Military Logistics", "Cross-team Collaboration"],
+    },
   ],
   projects: [
     {
