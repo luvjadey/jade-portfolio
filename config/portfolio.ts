@@ -53,7 +53,7 @@ export const portfolioConfig: PortfolioConfig = {
     shortIntro:
       "Cybersecurity graduate and bilingual professional (English / 中文) passionate about tech, national security, and protecting critical assets through mission-driven work.",
     aboutMe:
-      "I graduated in May 2026 from Arizona State University with a B.S. in Applied Computing — Cybersecurity (GPA 3.8, Summa Cum Laude, Dean's List), and I'm currently open to new cybersecurity roles. Outside of work, I led my team to a 3rd place finish at an Aerospace Cybersecurity CTF as Captain, and served as President of ASU Club Tennis — managing a 55+ member organization and a $35K+ annual budget.",
+      "Hi there! My name is Jade Yang, and I'm a cybersecurity professional (English/中文) who is passionate about technology, national security, and protecting critical systems. I'm currently seeking cybersecurity opportunities where I can continue learning, growing, and contributing to meaningful, mission driven work.\n\nI've always loved solving problems, learning new things, and challenging myself in fast paced environments. Cybersecurity excites me because technology is constantly evolving, and I want to be at the forefront of innovation in defense cybersecurity as new threats continue to emerge. I'm passionate about protecting critical systems, strengthening cyber defenses, and contributing to missions that make a real world impact.\n\nOutside of cybersecurity, I enjoy playing chess, tennis, spending time outdoors, and meeting new people. I'm always excited to connect with others, take on new challenges, and continue growing both personally and professionally!",
   },
   experience: [
     {

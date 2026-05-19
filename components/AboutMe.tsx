@@ -18,9 +18,11 @@ export default function AboutMe() {
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-wide">
           About Me
         </h2>
-        <p className="text-xl md:text-2xl text-white leading-relaxed font-light">
-          {personal.aboutMe}
-        </p>
+        <div className="space-y-6 text-xl md:text-2xl text-white leading-relaxed font-light text-left md:text-center">
+          {personal.aboutMe.split('\n\n').map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
       </motion.div>
     </section>
   )
