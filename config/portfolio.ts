@@ -48,7 +48,7 @@ export const portfolioConfig: PortfolioConfig = {
     email: "jadeyang1314@gmail.com",
     linkedin: "https://www.linkedin.com/in/jadeyang27",
     github: "https://github.com/luvjadey",
-    resume: "Jade Yang Resume.pdf",
+    resume: "Resume - Jade Yang.pdf",
     headshot: "/images/Headshot.jpg",
     shortIntro:
       "Cybersecurity graduate and bilingual professional (English / 中文) passionate about tech, national security, and protecting critical assets through mission-driven work.",
