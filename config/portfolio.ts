@@ -61,8 +61,8 @@ export const portfolioConfig: PortfolioConfig = {
       company: "Southwest Mission Acceleration Center",
       location: "Phoenix, AZ",
       startDate: "January 2026",
-      endDate: "Present",
-      current: true,
+      endDate: "May 2026",
+      current: false,
       logo: "/SWMAC Logo.jpg",
       bullets: [
         "Engineered automated Python and API-driven data pipelines to ingest and process large-scale structured and unstructured datasets for anomaly detection, threat analysis, and cybersecurity intelligence workflows, reducing manual processing time by 40%",
@@ -79,7 +79,7 @@ export const portfolioConfig: PortfolioConfig = {
       current: false,
       logo: "/FBI Logo.png",
       bullets: [
-        "TS/SCI with CI Polygraph",
+        "TS/SCI with full scope polygraph",
         "Led and supported 5+ counterintelligence outreach briefings for 30+ elected officials and senior staff across the Bay Area, communicating foreign influence and insider threat risks to non-technical stakeholders",
         "Analyzed OSINT data to produce written assessments supporting threat identification, risk prioritization, and operational decision-making",
       ],
