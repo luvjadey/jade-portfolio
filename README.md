@@ -1,6 +1,6 @@
 # Jade's Portfolio
 
-My personal portfolio website — a single-page site that introduces who I am and showcases my experience, projects, technical skills, and how to get in touch. Built as a clean, modern, navy-themed experience with a cyber-inspired background.
+My personal portfolio website — a single-page site that introduces who I am and showcases my experience, projects, technical skills, and how to get in touch. 
 
 ## What's on the site
 
