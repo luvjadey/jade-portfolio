@@ -42,7 +42,9 @@ export default function Experience() {
                       {exp.title}
                     </h3>
                     <p className="text-xl text-cyber-glow/90">{exp.company}</p>
-                    <p className="text-base text-white/60 mt-1">{exp.location}</p>
+                    {exp.location && (
+                      <p className="text-base text-white/60 mt-1">{exp.location}</p>
+                    )}
                   </div>
                   <p className="text-base text-white/75 font-medium whitespace-nowrap flex items-center gap-2 md:justify-end">
                     <span>

@@ -57,6 +57,28 @@ export const portfolioConfig: PortfolioConfig = {
   },
   experience: [
     {
+      title: "Platform Engineer",
+      company: "Autonomous Cyber",
+      location: "",
+      startDate: "August 2026",
+      endDate: "Present",
+      current: true,
+      logo: "/autonomous_cyber_logo.jpeg",
+      bullets: [
+        "Build internal developer platforms and self-service tooling that let engineers provision environments, databases, and logs independently",
+        "Manage cloud-native infrastructure as code and automate CI/CD pipelines to make shipping code fast, reliable, and repeatable",
+        "Establish golden paths — pre-packaged workflows and templates with security and compliance built in — to cut repetitive toil for product developers",
+      ],
+      skills: [
+        "Terraform",
+        "AWS",
+        "Kubernetes",
+        "Docker",
+        "CI/CD Pipelines",
+        "Python",
+      ],
+    },
+    {
       title: "Data Analyst",
       company: "Southwest Mission Acceleration Center",
       location: "Phoenix, AZ",
@@ -108,14 +130,6 @@ export const portfolioConfig: PortfolioConfig = {
         "Engineered an automated Python pipeline to classify 1,700+ defense company records against DoD Critical Technology Areas (CTAs) by integrating web scraping (BeautifulSoup), Salesforce lead data, and a locally hosted LLM (Ollama) with structured JSON output (Pydantic validation), achieving confidence scoring ≥ 0.90 and flagging low-confidence results for analyst review",
       ],
       skills: ["Python", "BeautifulSoup", "Ollama", "Pydantic", "Salesforce"],
-    },
-    {
-      title: "SAM.gov Company Lookup & Threat Vetting Tool",
-      date: "February 2026",
-      bullets: [
-        "Developed a Python-based tool integrating with the SAM.gov API to securely extract, validate, and process company identifiers (CAGE, UEI, location) and automate structured CSV output, improving efficiency and accuracy for threat analysis, vendor verification, and compliance-related investigations",
-      ],
-      skills: ["Python", "SAM.gov API", "CSV Automation", "Threat Vetting"],
     },
     {
       title: "Aerospace Cybersecurity CTF — 3rd Place / 26 Teams",
