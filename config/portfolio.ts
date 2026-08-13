@@ -34,6 +34,7 @@ export interface PortfolioConfig {
   projects: Project[];
   skills: {
     securityOps: string[];
+    cloudInfrastructure: string[];
     tools: string[];
     programming: string[];
     languages: string[];
@@ -53,13 +54,13 @@ export const portfolioConfig: PortfolioConfig = {
     shortIntro:
       "Cybersecurity graduate and bilingual professional (English / 中文) passionate about tech, national security, and protecting critical assets through mission-driven work.",
     aboutMe:
-      "Hi there! My name is Jade Yang, and I'm a cybersecurity professional (English/中文) who is passionate about technology, national security, and protecting critical systems. I'm currently seeking cybersecurity opportunities where I can continue learning, growing, and contributing to meaningful, mission driven work.\n\nI've always loved solving problems, learning new things, and challenging myself in fast paced environments. Cybersecurity excites me because technology is constantly evolving, and I want to be at the forefront of innovation in defense cybersecurity as new threats continue to emerge. I'm passionate about protecting critical systems, strengthening cyber defenses, and contributing to missions that make a real world impact.\n\nOutside of cybersecurity, I enjoy playing chess, tennis, spending time outdoors, and meeting new people. I'm always excited to connect with others, take on new challenges, and continue growing both personally and professionally!",
+      "Hi there! My name is Jade Yang, and I'm a cybersecurity professional (English/中文) who is passionate about technology, national security, and protecting critical systems. I'm currently a Platform Engineer at Autonomous Cyber, where I build the cloud infrastructure and developer tooling behind AI-driven security work — continuing to learn, grow, and contribute to meaningful, mission driven work.\n\nI've always loved solving problems, learning new things, and challenging myself in fast paced environments. Cybersecurity excites me because technology is constantly evolving, and I want to be at the forefront of innovation in defense cybersecurity as new threats continue to emerge. I'm passionate about protecting critical systems, strengthening cyber defenses, and contributing to missions that make a real world impact.\n\nOutside of cybersecurity, I enjoy playing chess, tennis, and spending time outdoors. I'm always excited to connect with others, take on new challenges, and continue growing both personally and professionally!",
   },
   experience: [
     {
       title: "Platform Engineer",
       company: "Autonomous Cyber",
-      location: "",
+      location: "San Francisco, CA",
       startDate: "August 2026",
       endDate: "Present",
       current: true,
@@ -87,10 +88,10 @@ export const portfolioConfig: PortfolioConfig = {
       current: false,
       logo: "/SWMAC Logo.jpg",
       bullets: [
-        "Engineered automated Python and API-driven data pipelines to ingest and process large-scale structured and unstructured datasets for anomaly detection, threat analysis, and cybersecurity intelligence workflows, reducing manual processing time by 40%",
-        "Configured and secured AWS VPC infrastructure using Security Groups and NACLs to enforce network segmentation, least-privilege access, and attack surface reduction in alignment with cloud security best practices",
+        "Engineered automated Python and API-driven data pipelines to ingest and process large-scale structured and unstructured datasets for intelligence workflows, reducing manual processing time by 40%",
+        "Researched emerging defense technologies and companies to support government funding analysis and technology assessment efforts",
       ],
-      skills: ["Python", "AWS VPC", "Threat Analysis", "Data Pipelines"],
+      skills: ["Python", "API Integration", "Data Pipelines", "Technology Assessment"],
     },
     {
       title: "Honors Intern",
@@ -124,6 +125,24 @@ export const portfolioConfig: PortfolioConfig = {
   ],
   projects: [
     {
+      title: "Linux Security Homelab",
+      date: "May 2026",
+      bullets: [
+        "Built a layered Linux defense environment simulating enterprise security operations by hardening SSH, UFW, Fail2Ban, and Auditd across 6 critical system paths, validating full detection-to-ban response in <30 seconds against a live Hydra brute-force simulation across 100+ credential permutations",
+        "Deployed WireGuard VPN, NGINX reverse proxy, and Wazuh SIEM to establish encrypted network segmentation and centralized log correlation across 3+ services, enabling real-time threat visibility through custom Grafana dashboards",
+      ],
+      skills: [
+        "Ubuntu Server",
+        "UFW",
+        "Fail2Ban",
+        "Auditd",
+        "Hydra",
+        "WireGuard",
+        "Wazuh",
+        "Grafana",
+      ],
+    },
+    {
       title: "CTA Intelligence Classification Pipeline",
       date: "April 2026",
       bullets: [
@@ -152,6 +171,18 @@ export const portfolioConfig: PortfolioConfig = {
       "Network Enumeration",
       "Privilege Escalation",
       "Log Analysis",
+      "Firewall Management",
+    ],
+    cloudInfrastructure: [
+      "AWS",
+      "Azure",
+      "GCP",
+      "Cloud Networking & IAM",
+      "Docker",
+      "Kubernetes",
+      "Terraform (Infrastructure as Code)",
+      "AWS VPC (Security Groups, NACLs)",
+      "Secrets Management",
     ],
     tools: [
       "Wireshark",
@@ -161,10 +192,21 @@ export const portfolioConfig: PortfolioConfig = {
       "Ubuntu / Linux",
       "FTK Imager",
       "WinPrefetch View",
-      "AWS VPC (Security Groups, NACLs)",
+      "UFW",
+      "Fail2Ban",
+      "Auditd",
+      "WireGuard",
+      "NGINX",
+      "Wazuh",
+      "GitHub Actions (CI/CD)",
+      "Prometheus / Grafana",
+      "Ollama",
+      "Pydantic",
     ],
     programming: [
       "Python (API integration, data pipelines, web scraping)",
+      "Go",
+      "Bash",
       "Java",
       "C",
       "HTML",

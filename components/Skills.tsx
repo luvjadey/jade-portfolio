@@ -39,9 +39,10 @@ export default function Skills() {
     <Section id="skills" title="Technical Skills">
       <div className="grid md:grid-cols-2 gap-6">
         <SkillGroup title="Security Operations & Analysis" items={skills.securityOps} />
-        <SkillGroup title="Tools & Platforms" items={skills.tools} delay={0.08} />
-        <SkillGroup title="Programming" items={skills.programming} delay={0.16} />
-        <SkillGroup title="Languages" items={skills.languages} delay={0.24} />
+        <SkillGroup title="Cloud & Infrastructure" items={skills.cloudInfrastructure} delay={0.08} />
+        <SkillGroup title="Tools & Platforms" items={skills.tools} delay={0.16} />
+        <SkillGroup title="Programming" items={skills.programming} delay={0.24} />
+        <SkillGroup title="Languages" items={skills.languages} delay={0.32} />
       </div>
     </Section>
   )

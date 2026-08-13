@@ -22,7 +22,7 @@ export default function Contact() {
         </h2>
 
         <p className="text-lg md:text-xl text-white/85 leading-relaxed mt-6 mb-8 max-w-2xl">
-          Open to new cybersecurity roles and collaborations. Feel free to connect with me on LinkedIn.
+          Always happy to talk national security and AI in cybersecurity. Send me a message on LinkedIn!
         </p>
 
         <ConnectButton href={personal.linkedin} />
