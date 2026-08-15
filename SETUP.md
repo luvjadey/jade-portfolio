@@ -12,7 +12,7 @@ npm install
 2. Name it `headshot.jpg` (or update the path in `config/portfolio.ts`)
 3. Recommended size: 400x400px or larger (square format works best)
 
-## Step 3: Run Development Server
+## Step 3: Run Development Server on Vercel
 
 ```bash
 npm run dev
