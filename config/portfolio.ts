@@ -102,7 +102,7 @@ export const portfolioConfig: PortfolioConfig = {
       logo: "/FBI Logo.png",
       bullets: [
         "TS/SCI with full scope polygraph",
-        "Led and supported 5+ counterintelligence outreach briefings for 30+ elected officials and senior staff across the Bay Area, communicating foreign influence and insider threat risks to non-technical stakeholders",
+        "Led and supported 5+ counterintelligence outreach briefings for 30+ elected officials and senior staff across the Bay Area, communicating foreign influence and infrastructure threats",
         "Analyzed OSINT data to produce written assessments supporting threat identification, risk prioritization, and operational decision-making",
       ],
       skills: ["TS/SCI Clearance", "Counterintelligence", "OSINT", "Briefings"],
