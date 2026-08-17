@@ -51,7 +51,7 @@ export const portfolioConfig: PortfolioConfig = {
     resume: "Resume - Jade Yang.pdf",
     headshot: "/images/Headshot.jpg",
     shortIntro:
-      "Platform Engineer at Autonomous Cyber and bilingual professional (English / 中文) passionate about tech, national security, and protecting critical assets. I build and automate the cloud infrastructure behind AI-driven security work. Driven by mission-focused engineering and a strong interest in combating emerging cyber threats.",
+      "Platform Engineer @ Autonomous Cyber | Prev @ FBI",
     aboutMe:
       "Hi there! My name is Jade Yang, and I'm a cybersecurity professional (English/中文) who is passionate about technology, national security, and protecting critical systems. I'm currently a Platform Engineer at Autonomous Cyber, where I build the cloud infrastructure and developer tooling behind AI-driven security work — continuing to learn, grow, and contribute to meaningful, mission driven work.\n\nI've always loved solving problems, learning new things, and challenging myself in fast paced environments. Cybersecurity excites me because technology is constantly evolving, and I want to be at the forefront of innovation in defense cybersecurity as new threats continue to emerge. I'm passionate about protecting critical systems, strengthening cyber defenses, and contributing to missions that make a real world impact.\n\nOutside of cybersecurity, I enjoy playing chess, tennis, and spending time outdoors. I'm always excited to connect with others, take on new challenges, and continue growing both personally and professionally!",
   },
