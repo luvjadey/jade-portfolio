@@ -10,24 +10,24 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Jade Yang | Cybersecurity Professional',
+  title: 'Jade Yang | Platform Engineer',
   description:
-    'Cybersecurity graduate and bilingual professional passionate about tech, national security, and protecting critical assets through mission-driven work.',
+    'Platform Engineer at Autonomous Cyber building cloud infrastructure and developer tooling behind AI-driven security work.',
   keywords: [
     'Jade Yang',
+    'Platform Engineering',
+    'Autonomous Cyber',
+    'Cloud Infrastructure',
+    'Terraform',
+    'Kubernetes',
     'Cybersecurity',
     'National Security',
-    'ASU',
-    'FBI',
-    'Threat Analysis',
-    'OSINT',
-    'Penetration Testing',
   ],
   authors: [{ name: 'Jade Yang' }],
   openGraph: {
-    title: 'Jade Yang | Cybersecurity Professional',
+    title: 'Jade Yang | Platform Engineer',
     description:
-      'Cybersecurity graduate passionate about national security and protecting critical assets.',
+      'Platform Engineer at Autonomous Cyber building cloud infrastructure and developer tooling behind AI-driven security work.',
     type: 'website',
   },
 }
