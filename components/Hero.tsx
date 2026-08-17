@@ -62,14 +62,6 @@ export default function Hero() {
           >
             GitHub
           </a>
-          <a
-            href={`/${personal.resume}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass-btn"
-          >
-            Resume
-          </a>
         </motion.div>
       </motion.div>
     </section>
