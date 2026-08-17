@@ -33,7 +33,6 @@ export interface PortfolioConfig {
   experience: Experience[];
   projects: Project[];
   skills: {
-    securityOps: string[];
     cloudInfrastructure: string[];
     tools: string[];
     programming: string[];
@@ -64,7 +63,7 @@ export const portfolioConfig: PortfolioConfig = {
       startDate: "August 2026",
       endDate: "Present",
       current: true,
-      logo: "/autonomous_cyber_logo.jpeg",
+      logo: "/autonomous_cyber_logo.jpg",
       bullets: [
         "Build internal developer platforms and self-service tooling that let engineers provision environments, databases, and logs independently",
         "Manage cloud-native infrastructure as code and automate CI/CD pipelines to make shipping code fast, reliable, and repeatable",
@@ -161,18 +160,6 @@ export const portfolioConfig: PortfolioConfig = {
     },
   ],
   skills: {
-    securityOps: [
-      "Threat Analysis",
-      "OSINT",
-      "Penetration Testing",
-      "Vulnerability Assessment",
-      "Incident Response",
-      "Malware Analysis",
-      "Network Enumeration",
-      "Privilege Escalation",
-      "Log Analysis",
-      "Firewall Management",
-    ],
     cloudInfrastructure: [
       "AWS",
       "Azure",
@@ -207,9 +194,10 @@ export const portfolioConfig: PortfolioConfig = {
       "Python (API integration, data pipelines, web scraping)",
       "Go",
       "Bash",
+      "Windows PowerShell",
       "Java",
       "C",
-      "HTML",
+      "TypeScript / JavaScript",
     ],
     languages: ["English", "Mandarin (Fluent)"],
   },
